@@ -146,7 +146,7 @@ Rscript -e "update.packages(ask = FALSE, repos = 'https://cran.rstudio.com')"
 # shown to cause a "lagged" RStudio client.
 
 # We do this by setting the option for CRAN to point to a misc directory on the User's machine
-
-echo 'options(repos = c(CRAN = "file:///my/cran/directory"))' >> ~/.Rprofile
+mkdir ~/fakecran
+echo 'options(repos = c(CRAN = "~/fakecran/"))' >> ~/.Rprofile
 
 
