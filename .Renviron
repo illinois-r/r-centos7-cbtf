@@ -1,0 +1,2 @@
+# Disable the secure download warning
+RSTUDIO_DISABLE_SECURE_DOWNLOAD_WARNING="1"
