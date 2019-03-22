@@ -96,9 +96,17 @@ rm -rf r-pkg-install.R
 
 # After we run updates, we need to disable querying external as it has been
 # shown to cause a "lagged" RStudio client.
+#
+# We do this inside of a .Rprofile that is loaded when R is started in either
+# R GUI or RStudio IDE by:
+# 1. Setting the option for CRAN to point to a misc directory on the user's machine
+# 2. Providing a shim for install.packages()
+#
+# We further disable RStudio's internet options by setting
+# environment variables in .Renviron
 
-# We do this by setting the option for CRAN to point to a misc directory on the User's machine
-mkdir ~/fakecran
-echo 'options(repos = c(CRAN = "file://~/fakecran"))' >> ~/.Rprofile
-
+# Deploy Rprofile and Renviron to user directory
+# Note: Probably best to use the *.site variants in `R_HOME/etc/*.site`
+cp .Rprofile ~/.Rprofile
+cp .Renviron ~/.Renviron
 
