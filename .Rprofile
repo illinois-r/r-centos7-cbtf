@@ -103,17 +103,14 @@
         env = as.environment(pkg_env_name)
         #pkg_ns_env = asNamespace(pkgname)
 
-        # Retrieve symbolic value of function/value to be replaced
-        sym = as.symbol(name)
-
         # Unlock environment where the function/variable is found.
-        base:::unlockBinding(sym, env)
+        base::unlockBinding(name, env)
 
         # Make the assignment into the environment with the new value
-        base:::assign(name, value, envir = env)
+        base::assign(name, value, envir = env)
 
         # Close the environment
-        base:::lockBinding(sym, env)
+        base::lockBinding(name, env)
     }
 
     ## Rewrite install.packages
