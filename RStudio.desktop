@@ -1,0 +1,19 @@
+[Desktop Entry]
+
+Version=1.0
+
+Type=Application
+
+Terminal=true
+
+Exec=/usr/lib/rstudio/bin/rstudio %F
+
+Name=rstudio
+
+Comment=
+
+Icon=/usr/lib/rstudio/rstudio.png
+
+Comment[en_US.utf8]=
+
+Name[en_US]=RStudio

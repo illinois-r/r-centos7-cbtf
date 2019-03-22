@@ -69,27 +69,7 @@ rm rstudio-latest-x86_64.rpm
 
 # Add icon to desktop
 # Based on: https://superuser.com/questions/806448/how-to-make-a-desktop-icon-on-centos-7
-cat <<- EOF > ~/Desktop/RStudio.desktop
-[Desktop Entry]
-
-Version=1.0
-
-Type=Application
-
-Terminal=true
-
-Exec=/usr/lib/rstudio/bin/rstudio %F
-
-Name=rstudio
-
-Comment=
-
-Icon=/usr/lib/rstudio/rstudio.png
-
-Comment[en_US.utf8]=
-
-Name[en_US]=RStudio
-EOF
+cp RStudio.desktop ~/Desktop/RStudio.desktop
 
 # Enable permissions
 chmod 755 ~/Desktop/RStudio.desktop
