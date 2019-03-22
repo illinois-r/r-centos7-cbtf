@@ -48,8 +48,9 @@
     ## CBTF Help Messages ----
 
     ## Hard coded help documentation location
-    cbtf_help_url = "https://cbtf.engr.illinois.edu/home.html"
     ## TODO: Update to where docs are on the CBTF website!!
+
+    cbtf_help_url = "https://cbtf.engr.illinois.edu/home.html"
 
     ## Open the URL for students to view help documentation
     help_cbtf = function(url = cbtf_help_url) {
