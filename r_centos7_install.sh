@@ -3,9 +3,9 @@
 #
 # r_centos7_install.sh
 #
-# Copyright (C) 2018 James Joseph Balamuta <balamut2@illinois.edu>
+# Copyright (C) 2019 James Joseph Balamuta <balamut2@illinois.edu>
 #
-# Version 1.2.0 -- 07/02/18
+# Version 2.0.0 -- 03/22/19
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -25,7 +25,7 @@
 ######################################
 # # Allow the file to execute
 # chmod +x ~/r_centos7_install.sh
-# 
+#
 # # Run the file
 # ./r_centos7_install.sh
 ######################################
@@ -59,6 +59,9 @@ sudo yum install -y libcurl-devel \
 ############# Install Latest RStudio IDE
 
 # Download latest 64 bit version
+#
+# For other download links, please see:
+# http://thecoatlessprofessor.com/tutorials/downloading-and-installing-rstudio-desktop/
 wget -O rstudio-latest-x86_64.rpm https://www.rstudio.org/download/latest/stable/desktop/redhat64/rstudio-latest-x86_64.rpm
 
 # Install it
@@ -104,6 +107,6 @@ Rscript -e "update.packages(ask = FALSE, repos = 'https://cran.rstudio.com')"
 
 # We do this by setting the option for CRAN to point to a misc directory on the User's machine
 mkdir ~/fakecran
-echo 'options(repos = c(CRAN = "~/fakecran/"))' >> ~/.Rprofile
+echo 'options(repos = c(CRAN = "file://~/fakecran"))' >> ~/.Rprofile
 
 
