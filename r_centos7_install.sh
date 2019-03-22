@@ -78,46 +78,18 @@ chmod 755 ~/Desktop/RStudio.desktop
 
 # Create a script that installs R packages
 
-# Warning: When taking RStudio Offline it's important that we double check that all dependencies are pre-installed
-# RStudio's dependency manager does _not_ export a list of dependencies. This list can be found here:
+# Warning: When taking RStudio Offline it's important that we double check that
+# all dependencies are pre-installed RStudio's dependency manager does
+# _not_ export a list of dependencies.
 #
+# The list of dependencies can be found here:
 # https://github.com/rstudio/rstudio/blob/master/src/gwt/src/org/rstudio/studio/client/common/dependencies/DependencyManager.java
 
-cat <<- EOF > rpkg-install.R
-# R Code Ahead to install packages!
-
-# The following are packages used in STAT 385
-pkg_list = c('tidyverse', 'rmarkdown', 'shiny',                                                  # EDA tools
-            'flexdashboard', 'shinydashboard',
-            'devtools', 'testthat', 'roxygen2', 'profvis', 'RSQLite',                           # Development tools
-            'RcppArmadillo', 'rbenchmark', 'microbenchmark',                                    # C++ packages
-            'zoo', 'xts', 'forecast',                                                           # TS packages
-            'maps', 'maptools', 'mapproj', 'mapdata', 'ggmap',                                  # Mapping packages
-            'GGally', 'ggrepel', 'ggraph', 'gganimate',
-            'cowplot', 'gridExtra', 'patchwork',
-            'tidytext', 'tm',
-            'future', 'doParallel',
-            'data.table',
-            'lubridate',
-            'survey', 'fivethirtyeight', 'nycflights13', 'babynames', 'neiss', 'ggplot2movies', # Data packages
-            'caTools', 'bitops',                                                                # Dependencies that are out of date for rmarkdown
-            'PKI', 'RCurl', 'RJSONIO', 'packrat', 'rstudioapi', 'rsconnect',                    # RSConnect
-            'miniUI')
-
-# Ncpus allows for quicker compilation.
-install.packages(pkg_list, repos = "https://cran.rstudio.com", Ncpus = 4)
-
-# Install some data packages on GitHub
-devtools::install_github("kjhealy/socviz")
-devtools::install_github("coatless/uiucdata")
-devtools::install_github("coatless/ucidata")
-EOF
-
 # Run the script with sudo to write to `/usr/lib64/R/library`
-sudo Rscript rpkg-install.R
+sudo Rscript r-pkg-install.R
 
 # Clean up by removing the script
-rm -rf rpkg-install.R
+rm -rf r-pkg-install.R
 
 ############## Update R Packages
 
