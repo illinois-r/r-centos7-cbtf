@@ -1,2 +1,22 @@
-# Disable the secure download warning
+## Environment variables used here are primarily for RStudio Desktop
+## RStudio Server Pro configuration variables can be found here:
+## https://docs.rstudio.com/ide/server-pro/latest/r-sessions.html
+
+## Disable the secure download warning
+## c.f. https://support.rstudio.com/hc/en-us/articles/206827897-Secure-Package-Downloads-for-R
+## Ticket: https://github.com/rstudio/rstudio/issues/4461
 RSTUDIO_DISABLE_SECURE_DOWNLOAD_WARNING="1"
+
+## Disabling R Studio features
+## c.f. https://support.rstudio.com/hc/en-us/articles/206827897-Secure-Package-Downloads-for-R
+
+## Disables RStudio Calling Home for Updates
+RSTUDIO_DISABLE_CHECK_FOR_UPDATES="1"
+
+## Disables RStudio's package panel but NOT installing packages...
+## This requires crippling the CRAN repo and inserting a shim for install.packages
+## Note: Not ideal if students use it to load packages via checkbox.
+# RSTUDIO_DISABLE_PACKAGES="1"
+
+## Disables publishing Rmds or Shiny apps to RPubs/shinyapps.io
+RSTUDIO_DISABLE_EXTERNAL_PUBLISH="1"
