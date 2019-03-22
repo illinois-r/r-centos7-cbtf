@@ -113,8 +113,14 @@
         base::lockBinding(name, env)
     }
 
-    ## Rewrite install.packages
-    shim_pkg_func("install.packages", "utils", function(...) { cbtf_disabled_cran_msg() })
+    ## Provide an alternative install.packages(...) routine
+    install_packages_shim = function(...) { cbtf_disabled_cran_msg() }
+
+    ## Setup a shim
+    ##
+    ## Note: RStudio will overwrite the shim due to the initialization procedure.
+    ## Only valid in _R_ terminal sessions or R GUI.
+    shim_pkg_func("install.packages", "utils", install_packages_shim)
 
     ## Display the welcome bumper
     cbtf_welcome_msg()
