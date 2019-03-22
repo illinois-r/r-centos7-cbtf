@@ -77,9 +77,7 @@ cp RStudio.desktop ~/Desktop/RStudio.desktop
 # Enable permissions
 chmod 755 ~/Desktop/RStudio.desktop
 
-############### Add R packages
-
-# Create a script that installs R packages
+############### Add and update R packages
 
 # Warning: When taking RStudio Offline it's important that we double check that
 # all dependencies are pre-installed RStudio's dependency manager does
@@ -93,12 +91,6 @@ sudo Rscript r-pkg-install.R
 
 # Clean up by removing the script
 rm -rf r-pkg-install.R
-
-############## Update R Packages
-
-# Updates packages in R site-wide library from the RStudio CDN for CRAN
-# CRAN is given here: https://cloud.r-project.org
-Rscript -e "update.packages(ask = FALSE, repos = 'https://cran.rstudio.com')"
 
 ############## Disable access to CRAN
 
