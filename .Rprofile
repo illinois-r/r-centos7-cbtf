@@ -38,14 +38,12 @@
     ## Initialize an empty local CRAN repository.
     ## Note: In this setup, we are not placing package
     ## sources or binaries into this location.
-
-    # local_user_cran = file.path(Sys.getenv("HOME"), "cran")
-    # dir.create(local_user_cran, showWarnings = FALSE)
+    local_user_cran = file.path(Sys.getenv("HOME"), "cran")
+    dir.create(local_user_cran, showWarnings = FALSE)
 
     ## Set the location of packages to the empty local CRAN.
     ## Ensure that the appropriate RStudio Secure warning is handled.
-
-    # options(repos = c("CRAN" = paste0("file://", local_user_cran)))
+    options(repos = c("CRAN" = paste0("file://", local_user_cran)))
 
     ## CBTF Help Messages ----
 
