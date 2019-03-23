@@ -30,5 +30,5 @@ chmod +x ~/setup-centos7-r.sh
 ### Demo
 
 
-![Show Startup Procedure](https://i.imgur.com/zF6vvU8.gif)
+![Show Startup Procedure](https://i.imgur.com/FGV3U8z.gif)
 
