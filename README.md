@@ -1,6 +1,6 @@
 ## R and RStudio on a Secured CentOS 7 Environment
 
-![Show Startup Procedure](https://i.imgur.com/FGV3U8z.gif)
+![Show Startup Procedure](https://i.imgur.com/c8aPw7r.gif)
 
 This repository provides a way to setup R and RStudio on a secured computing environment. In particular, the setup routine will:
 
