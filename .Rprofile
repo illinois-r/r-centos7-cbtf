@@ -38,20 +38,19 @@
     ## Initialize an empty local CRAN repository.
     ## Note: In this setup, we are not placing package
     ## sources or binaries into this location.
-
-    # local_user_cran = file.path(Sys.getenv("HOME"), "cran")
-    # dir.create(local_user_cran, showWarnings = FALSE)
+    local_user_cran = file.path(Sys.getenv("HOME"), "cran")
+    dir.create(local_user_cran, showWarnings = FALSE)
 
     ## Set the location of packages to the empty local CRAN.
     ## Ensure that the appropriate RStudio Secure warning is handled.
-
-    # options(repos = c("CRAN" = paste0("file://", local_user_cran)))
+    options(repos = c("CRAN" = paste0("file://", local_user_cran)))
 
     ## CBTF Help Messages ----
 
     ## Hard coded help documentation location
-    cbtf_help_url = "https://cbtf.engr.illinois.edu/home.html"
     ## TODO: Update to where docs are on the CBTF website!!
+
+    cbtf_help_url = "https://cbtf.engr.illinois.edu/home.html"
 
     ## Open the URL for students to view help documentation
     help_cbtf = function(url = cbtf_help_url) {
@@ -105,21 +104,24 @@
         env = as.environment(pkg_env_name)
         #pkg_ns_env = asNamespace(pkgname)
 
-        # Retrieve symbolic value of function/value to be replaced
-        sym = as.symbol(name)
-
         # Unlock environment where the function/variable is found.
-        base:::unlockBinding(sym, env)
+        base::unlockBinding(name, env)
 
         # Make the assignment into the environment with the new value
-        base:::assign(name, value, envir = env)
+        base::assign(name, value, envir = env)
 
         # Close the environment
-        base:::lockBinding(sym, env)
+        base::lockBinding(name, env)
     }
 
-    ## Rewrite install.packages
-    shim_pkg_func("install.packages", "utils", function(...) { cbtf_disabled_cran_msg() })
+    ## Provide an alternative install.packages(...) routine
+    install_packages_shim = function(...) { cbtf_disabled_cran_msg() }
+
+    ## Setup a shim
+    ##
+    ## Note: RStudio will overwrite the shim due to the initialization procedure.
+    ## Only valid in _R_ terminal sessions or R GUI.
+    shim_pkg_func("install.packages", "utils", install_packages_shim)
 
     ## Display the welcome bumper
     cbtf_welcome_msg()

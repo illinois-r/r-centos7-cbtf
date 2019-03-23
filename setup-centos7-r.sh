@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 #
-# r-centos7-install.sh
+# setup-centos7-r.sh
 #
 # Copyright (C) 2019 James Joseph Balamuta <balamut2@illinois.edu>
 #
@@ -24,10 +24,10 @@
 
 ######################################
 # # Allow the file to execute
-# chmod +x ~/r-centos7-install.sh
+# chmod +x ~/setup-centos7-r.sh
 #
 # # Run the file
-# ./r-centos7-install.sh
+# ./setup-centos7-r.sh
 ######################################
 
 ############## Add Development Tools
