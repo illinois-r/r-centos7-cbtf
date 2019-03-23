@@ -28,7 +28,7 @@
 Ncpus = parallel::detectCores(logical = FALSE)
 
 # Cap number of cores used in installation to 3
-if(Ncpus > 4) {
+if(Ncpus >= 4) {
     Ncpus = 3
 } else {
     Ncpus = Ncpus
@@ -40,7 +40,7 @@ if(Ncpus > 4) {
 options(Ncpus = Ncpus,
         repos = c("CRAN" = "https://cloud.r-project.org"))
 
-# The following are packages used in STAT 385
+# The following are packages used in STAT 385 / 430 DSPM
 pkg_list = c('tidyverse', 'rmarkdown', 'shiny',                                                  # EDA tools
              'flexdashboard', 'shinydashboard',
              'devtools', 'testthat', 'roxygen2', 'profvis', 'RSQLite',                           # Development tools
