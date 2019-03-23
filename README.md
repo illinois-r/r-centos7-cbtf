@@ -1,8 +1,11 @@
 ## R and RStudio on a Secured CentOS 7 Environment
 
+![Show Startup Procedure](https://i.imgur.com/FGV3U8z.gif)
+
 This repository provides a way to setup R and RStudio on a secured computing environment. In particular, the setup routine will:
 
 - Download and Install on CentOS 7
+    - Development Tools
     - _R_ 
     - _RStudio_
     - Assortment of _R_ Packages into a site-wide library
@@ -14,8 +17,8 @@ This repository provides a way to setup R and RStudio on a secured computing env
     - Disables RStudio Check for Updates
     - Disables HTTPS Secure Download Warning 
         - **Note:** Not relevant as CRAN cannot be accessed.
-- Setups a help function in the global environment to open
-  intranet documentation when called.
+- Sets up a help function in the global environment to open
+  intranet documentation on environment when called.
     
 ### Usage
 
@@ -41,9 +44,4 @@ chmod +x ~/setup-centos7-r.sh
 # Run the file
 ./setup-centos7-r.sh
 ```
-
-### Demo
-
-
-![Show Startup Procedure](https://i.imgur.com/FGV3U8z.gif)
 
