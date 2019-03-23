@@ -45,6 +45,11 @@
     ## Ensure that the appropriate RStudio Secure warning is handled.
     options(repos = c("CRAN" = paste0("file://", local_user_cran)))
 
+    # Exit if a human isn't present (e.g. run from an Rscript / R CMD)
+    if (!interactive()) {
+        return()
+    }
+
     ## CBTF Help Messages ----
 
     ## Hard coded help documentation location
