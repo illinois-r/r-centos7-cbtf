@@ -5,7 +5,7 @@
 #
 # Copyright (C) 2019 James Joseph Balamuta <balamut2@illinois.edu>
 #
-# Version 2.0.0 -- 03/22/19
+# Version 2.5.0 -- 04/16/19
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -22,7 +22,7 @@
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 #
 
-# R Code Ahead to install packages!
+#### Configure Package Setup ----
 
 # Dynamical detect physical cores...
 Ncpus = parallel::detectCores(logical = FALSE)
@@ -40,23 +40,150 @@ if(Ncpus >= 4) {
 options(Ncpus = Ncpus,
         repos = c("CRAN" = "https://cloud.r-project.org"))
 
-# The following are packages used in STAT 385 / 430 DSPM
-pkg_list = c('tidyverse', 'rmarkdown', 'shiny',                                                  # EDA tools
-             'flexdashboard', 'shinydashboard',
-             'devtools', 'testthat', 'roxygen2', 'profvis', 'RSQLite',                           # Development tools
-             'RcppArmadillo', 'rbenchmark', 'microbenchmark',                                    # C++ packages
-             'zoo', 'xts', 'forecast',                                                           # TS packages
-             'maps', 'maptools', 'mapproj', 'mapdata', 'ggmap',                                  # Mapping packages
-             'GGally', 'ggrepel', 'ggraph', 'gganimate',
-             'cowplot', 'gridExtra', 'patchwork',
-             'tidytext', 'tm',
-             'future', 'doParallel',
-             'data.table',
-             'lubridate',
-             'survey', 'fivethirtyeight', 'nycflights13', 'babynames', 'neiss', 'ggplot2movies', # Data packages
-             'caTools', 'bitops',                                                                # Dependencies that are out of date for rmarkdown
-             'PKI', 'RCurl', 'RJSONIO', 'packrat', 'rstudioapi', 'rsconnect',                    # RSConnect
-             'miniUI')
+
+#### RStudio IDE Packages ----
+
+# RStudio Required Packages
+#
+# Warning: When taking RStudio Offline it's important that we double check that
+# all dependencies are pre-installed RStudio's dependency manager does
+# _not_ export a list of dependencies.
+#
+# The list of dependencies can be found here:
+# https://github.com/rstudio/rstudio/blob/master/src/gwt/src/org/rstudio/studio/client/common/dependencies/DependencyManager.java
+rstudio_pkgs = c(
+    "xml2",
+    "htmltools",
+    "htmlwidgets",
+    "jsonlite",
+    "r2d3",
+    "R6",
+    "stringi",
+    "httpuv",
+    "crayon",
+    "plumber",
+    "packrat",
+    "RCurl",
+    "openssl",
+    "rstudioapi",
+    "yaml",
+    "rsconnect",
+    "evaluate",
+    "digest",
+    "highr",
+    "markdown",
+    "stringr",
+    "Rcpp",
+    "knitr",
+    "base64enc",
+    "rprojroot",
+    "mime",
+    "rmarkdown",
+    "miniUI",
+    "xtable",
+    "sourcetools",
+    "promises",
+    "rlang",
+    "later",
+    "shiny",
+    "png",
+    "reticulate",
+    "rstan",
+    "readr",
+    "haven",
+    "readxl",
+    "RJDBC",
+    "rJava",
+    "RODBC",
+    "mongolite",
+    "profvis",
+    "keyring",
+    "odbc",
+    "shinytest",
+    "testthat",
+    "devtools",
+    "DBI",
+    "RSQLite"
+)
+
+#### Class Package Requirements ----
+
+### STAT 385
+stat385_pkgs =
+    c('rmarkdown',                                              # EDA tools
+      'purrr', 'dplyr', 'ggplot2',
+      'tidyr', 'lubridate',
+      'readxl', 'readr',                                        # Read data
+      'jsonlite', 'haven',
+      'httr', 'rvest',                                          # Web Scraping
+      'xml2',
+      'tidyverse',                                              # Tidyverse-catch all.
+      'shiny', 'flexdashboard', 'shinydashboard',               # Interactive Interfaces
+      'devtools', 'testthat',                                   # Development tools
+      'roxygen2', 'profvis',
+      'covr',
+      'RSQLite', 'dbplyr',                                      # Database tools
+      'Rcpp', 'RcppArmadillo',                                  # C++ packages
+      'rbenchmark', 'microbenchmark',                           # Code Timing Tools
+      'zoo', 'xts', 'forecast',                                 # Time Series Analysis
+      'maps', 'maptools', 'mapproj',                            # Mapping packages
+      'mapdata', 'ggmap', 'leaflet',
+      'leaflet.extra',
+      'GGally', 'ggrepel', 'ggraph', 'gganimate',               # Graphing Tools
+      'cowplot', 'gridExtra', 'patchwork',
+      'tidytext', 'tm',                                         # Text manipulation
+      'future', 'doParallel',                                   # Parallelization
+      'data.table',                                             # Data Manipulation
+      'survey', 'fivethirtyeight', 'nycflights13',              # Data packages
+      'babynames', 'neiss', 'ggplot2movies'
+      )
+
+### STAT 430 DSPM ----
+
+stat430dspm_pkgs = c(
+    "rmarkdown",
+    "jsonlite",
+    "xml2",
+    "RSQLite",
+    "data.table",
+    "ggplot2",
+    "stringr",
+    "dplyr",
+    "tibble",
+    "tidyr",
+    "rbenchmark",
+    "microbenchmark",
+    "Rcpp",
+    "RcppArmadillo",
+    "latticeExtra",
+    "shiny",
+    "shinydashboard",
+    "flexdashboard",
+    "devtools",
+    "RUnit",
+    "testthat",
+    "covr",
+    "roxygen2",
+    "littler"
+)
+
+### Your class here ----
+
+# deptnamenumber_pkgs = c("", ...)
+
+### Combine packages used across classes  ----
+
+# Master package list
+pkg_list = Reduce(union,
+                  list(rstudio_pkgs,
+                       stat385_pkgs,
+                       stat430dspm_pkgs
+                       #, deptnamenumber_pkgs # Your course here
+                       )
+                  )
+
+
+#### Install packages from CRAN  ----
 
 # Determine what packages are NOT installed already.
 to_install_pkgs = pkg_list[!(pkg_list %in% installed.packages()[,"Package"])]
@@ -68,6 +195,8 @@ if(length(to_install_pkgs)) {
 
 # Check if any updates exist, if so... Install!
 update.packages(ask = FALSE)
+
+#### GitHub-only packages  ----
 
 # Install some data packages on GitHub
 devtools::install_github("kjhealy/socviz")

@@ -5,7 +5,7 @@
 #
 # Copyright (C) 2019 James Joseph Balamuta <balamut2@illinois.edu>
 #
-# Version 2.0.0 -- 03/22/19
+# Version 2.5.0 -- 04/16/19
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
