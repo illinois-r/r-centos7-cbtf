@@ -77,7 +77,9 @@
     cbtf_disabled_cran_msg = function() {
         message("Note: ")
         wrap_msg("Installing packages from CRAN is disabled.")
-        wrap_msg("All required R packages have already been installed.\n")
+        wrap_msg(
+            "Packages required by STAT 385, STAT 430 DSPM, STAT 432, and CE 202 have been pre-installed. \n"
+        )
     }
 
     cbtf_documentation_msg = function() {
