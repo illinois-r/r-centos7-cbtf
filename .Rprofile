@@ -70,6 +70,10 @@
     ## Provide startup messages in red text to indicate the status of
     ## package installation and environment specific documentation
 
+    wrap_msg = function(x) {
+        message(paste(strwrap(x), collapse = "\n"))
+    }
+
     cbtf_disabled_cran_msg = function() {
         message("Note: ")
         message(strwrap("Installing packages from CRAN is disabled."))
@@ -77,13 +81,7 @@
     }
 
     cbtf_documentation_msg = function() {
-        message(
-            strwrap(
-                paste0("For help with R and RStudio in the CBTF, please consult",
-                       " the help guide by using the `help_cbtf()` function.")
-                , prefix = "\n"
-            )
-        )
+        wrap_msg("For help with R and RStudio in the CBTF, please consult the help guide by using the `help_cbtf()` function.")
     }
 
     cbtf_welcome_msg = function() {
