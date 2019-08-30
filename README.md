@@ -1,6 +1,6 @@
 ## R and RStudio on a Secured CentOS 7 Environment
 
-![Show Startup Procedure](https://i.imgur.com/c8aPw7r.gif)
+![Show Startup Procedure](https://i.imgur.com/2TOPJNI.gif)
 
 This repository provides a way to setup R and RStudio on a secured computing environment. In particular, the setup routine will:
 
@@ -12,6 +12,8 @@ This repository provides a way to setup R and RStudio on a secured computing env
 - Embeds notice on session start regarding CRAN access.
 - Establishes and redirects CRAN install package requests to
   a local directory.
+- Alerts users that `install.packages()` is disabled in console R, R GUI,
+  and RStudio IDE.
 - [Disable RStudio Features requiring Internet Access](https://support.rstudio.com/hc/en-us/articles/210990438-Disabling-RStudio-Features)
     - Disables posting to RPubs or Shiny Apps 
     - Disables RStudio Check for Updates
