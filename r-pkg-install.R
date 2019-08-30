@@ -212,6 +212,16 @@ stat432_pkgs = c(
   "tree"
 )
 
+### CE 202 ----
+
+ce202_pkgs = c(
+  "tidyverse",
+  "ggplot",
+  "knitr",
+  "rmarkdown",
+  "readxl"
+)
+
 ### Your class here ----
 
 # deptnamenumber_pkgs = c("", ...)
@@ -223,7 +233,8 @@ pkg_list = Reduce(union,
                   list(rstudio_pkgs,
                        stat385_pkgs,
                        stat430dspm_pkgs,
-                       stat432_pkgs
+                       stat432_pkgs,
+                       ce202_pkgs
                        #, deptnamenumber_pkgs # Your course here
                        )
                   )
