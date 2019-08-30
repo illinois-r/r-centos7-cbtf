@@ -167,6 +167,51 @@ stat430dspm_pkgs = c(
     "littler"
 )
 
+### STAT 432: Basics of Statistical Learning
+
+stat432_pkgs = c(
+  "caret",
+  "class",
+  "cluster",
+  "dendextend",
+  "dplyr",
+  "e1071",
+  "ellipse",
+  "extraTrees",
+  "factoextra",
+  "FNN",
+  "gam",
+  "gbm",
+  "ggplot2",
+  "ggridges",
+  "ggthemes",
+  "glmnet",
+  "ISLR",
+  "janitor",
+  "kableExtra",
+  "kernlab",
+  "klaR",
+  "knitr",
+  "leaps",
+  "lubridate",
+  "mlbench",
+  "nnet",
+  "plotrix",
+  "pROC",
+  "purrr",
+  "randomForest",
+  "readr",
+  "rmarkdown",
+  "rpart",
+  "rpart.plot",
+  "rsample",
+  "rvest",
+  "sparcl",
+  "tibble",
+  "tidyverse",
+  "tree"
+)
+
 ### Your class here ----
 
 # deptnamenumber_pkgs = c("", ...)
@@ -177,7 +222,8 @@ stat430dspm_pkgs = c(
 pkg_list = Reduce(union,
                   list(rstudio_pkgs,
                        stat385_pkgs,
-                       stat430dspm_pkgs
+                       stat430dspm_pkgs,
+                       stat432_pkgs
                        #, deptnamenumber_pkgs # Your course here
                        )
                   )
