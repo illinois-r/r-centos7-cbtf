@@ -76,8 +76,8 @@
 
     cbtf_disabled_cran_msg = function() {
         message("Note: ")
-        message(strwrap("Installing packages from CRAN is disabled."))
-        message(strwrap("All required R packages have already been installed.\n"))
+        wrap_msg("Installing packages from CRAN is disabled.")
+        wrap_msg("All required R packages have already been installed.\n")
     }
 
     cbtf_documentation_msg = function() {
