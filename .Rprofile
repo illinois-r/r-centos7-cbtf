@@ -70,20 +70,20 @@
     ## Provide startup messages in red text to indicate the status of
     ## package installation and environment specific documentation
 
+    wrap_msg = function(x) {
+        message(paste(strwrap(x), collapse = "\n"))
+    }
+
     cbtf_disabled_cran_msg = function() {
         message("Note: ")
-        message(strwrap("Installing packages from CRAN is disabled."))
-        message(strwrap("All required R packages have already been installed.\n"))
+        wrap_msg("Installing packages from CRAN is disabled.")
+        wrap_msg(
+            "Packages required by STAT 385, STAT 430 DSPM, STAT 432, and CE 202 have been pre-installed. \n"
+        )
     }
 
     cbtf_documentation_msg = function() {
-        message(
-            strwrap(
-                paste0("For help with R and RStudio in the CBTF, please consult",
-                       " the help guide by using the `help_cbtf()` function.")
-                , prefix = "\n"
-            )
-        )
+        wrap_msg("For help with R and RStudio in the CBTF, please consult the help guide by using the `help_cbtf()` function.")
     }
 
     cbtf_welcome_msg = function() {
@@ -122,11 +122,24 @@
     ## Provide an alternative install.packages(...) routine
     install_packages_shim = function(...) { cbtf_disabled_cran_msg() }
 
-    ## Setup a shim
-    ##
-    ## Note: RStudio will overwrite the shim due to the initialization procedure.
-    ## Only valid in _R_ terminal sessions or R GUI.
-    shim_pkg_func("install.packages", "utils", install_packages_shim)
+    ## Setup a shim to override the install.packages() function
+    if(Sys.getenv("RSTUDIO") == "1") {
+        ## Establishes a delayed registration of the shim after
+        ## RStudio's startup procedure occurs. This procedure overwrites settings
+        ## sometimes established in .Rprofile. Thus, we need a delayed
+        ## component to ensure we're preventing
+        ## install.packages() from being delayed
+        ## c.f. https://github.com/rstudio/rstudio/issues/1579#issuecomment-495706255
+        setHook("rstudio.sessionInit", function(newSession) {
+            if (newSession)
+                shim_pkg_func("install.packages", "utils", install_packages_shim)
+        }, action = "append")
+    } else {
+        ## Establish the shim for _R_ terminal sessions or R GUI.
+        ## Attempting to establish the hook with RStudio would result
+        ## in its initialization procedure overwrite this shim.
+        shim_pkg_func("install.packages", "utils", install_packages_shim)
+    }
 
     ## Display the welcome bumper
     cbtf_welcome_msg()
