@@ -78,7 +78,7 @@
         message("Note: ")
         wrap_msg("Installing packages from CRAN is disabled.")
         wrap_msg(
-            "Packages required by STAT 385, STAT 430 DSPM, STAT 432, and CE 202 have been pre-installed. \n"
+            "Packages required by:\n STAT 385, STAT 430 DSPM, STAT 432, and CE 202\n have been pre-installed. \n"
         )
     }
 
