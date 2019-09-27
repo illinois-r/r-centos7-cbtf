@@ -3,7 +3,7 @@
 #
 # Copyright (C) 2019 James Joseph Balamuta <balamut2@illinois.edu>
 #
-# Version 2.5.0 -- 04/16/19
+# Version 2.5.1 -- 09/26/19
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -55,7 +55,7 @@
     ## Hard coded help documentation location
     ## TODO: Update to where docs are on the CBTF website!!
 
-    cbtf_help_url = "https://cbtf.engr.illinois.edu/home.html"
+    cbtf_help_url = "https://cbtf.engr.illinois.edu/for-students/software-RStudio.html"
 
     ## Open the URL for students to view help documentation
     help_cbtf = function(url = cbtf_help_url) {
@@ -65,7 +65,7 @@
 
     ## Place the help function into the global environment
     ## TODO: Enable when documentation is present
-    # base::assign("help_cbtf", help_cbtf, envir = globalenv())
+    base::assign("help_cbtf", help_cbtf, envir = globalenv())
 
     ## Provide startup messages in red text to indicate the status of
     ## package installation and environment specific documentation
@@ -88,8 +88,7 @@
 
     cbtf_welcome_msg = function() {
         cbtf_disabled_cran_msg()
-        # TODO: Enable when help docs are on the CBTF website!
-        # cbtf_documentation_msg()
+        cbtf_documentation_msg()
     }
 
     ## Disable install.packages ----
