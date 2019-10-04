@@ -77,8 +77,8 @@
     cbtf_disabled_cran_msg = function() {
         message("Note: ")
         wrap_msg("Installing packages from CRAN is disabled.")
-        wrap_msg(
-            "Packages required by:\n STAT 385, STAT 430 DSPM, STAT 432, and CE 202\n have been pre-installed. \n"
+        message(
+            paste0(c("Packages have been pre-installed for:", "STAT 385, STAT 430 DSPM, STAT 432, and CEE 202\n"), collapse="\n")
         )
     }
 
