@@ -141,7 +141,8 @@ stat385_pkgs =
       'future', 'doParallel',                                   # Parallelization
       'data.table',                                             # Data Manipulation
       'survey', 'fivethirtyeight', 'nycflights13',              # Data packages
-      'babynames', 'neiss', 'ggplot2movies'
+      'babynames', 'neiss', 'ggplot2movies',
+      'socviz'
       )
 
 ### STAT 430 DSPM ----
@@ -262,6 +263,5 @@ update.packages(ask = FALSE, quiet = TRUE)
 #### GitHub-only packages  ----
 
 # Install some data packages on GitHub
-devtools::install_github("kjhealy/socviz")
 devtools::install_github("coatless/uiucdata")
 devtools::install_github("coatless/ucidata")
