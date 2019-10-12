@@ -109,7 +109,8 @@ rstudio_pkgs = c(
     'devtools',
     'DBI',
     'RSQLite',
-    'caTools' # Not listed in Dependency Manager?
+    'caTools', # Not listed in Dependency Manager?
+    'PKI', 'RCurl', 'RJSONIO'
   )
 
 
@@ -220,9 +221,9 @@ stat432_pkgs = c(
   'tree'
 )
 
-### CE 202 ----
+### CEE 202 ----
 
-ce202_pkgs = c(
+cee202_pkgs = c(
   'tidyverse',
   'ggplot',
   'knitr',
