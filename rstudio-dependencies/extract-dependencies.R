@@ -1,7 +1,7 @@
 library("stringr")
 
 # Grab code from dependency manager file
-code_lines = readLines("rstudio-dependencies/DependencyManger.java")
+code_lines = readLines("rstudio-dependencies/DependencyManager.java")
 
 # Data style:
 #
@@ -19,6 +19,9 @@ pkgs = str_replace_all(code_lines, pattern = pattern, "\\1")
 
 # Take only the unique packages
 unique_pkgs = unique(pkgs)
+
+# Take a snapshot and store it as a text file with 1 package per line
+writeLines(unique_pkgs, con = "rstudio-dependencies/list-dependencies.txt")
 
 # Write in vector-form
 cat(paste0("c(", paste0('"', unique_pkgs, '"', collapse = ","), ")"))
