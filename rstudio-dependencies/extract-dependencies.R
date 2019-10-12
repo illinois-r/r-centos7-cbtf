@@ -1,5 +1,11 @@
 library("stringr")
 
+# Download the latest version
+download.file(
+    "https://github.com/rstudio/rstudio/blob/master/src/gwt/src/org/rstudio/studio/client/common/dependencies/DependencyManager.java?raw=1",
+    "rstudio-dependencies/DependencyManager.java"
+)
+
 # Grab code from dependency manager file
 code_lines = readLines("rstudio-dependencies/DependencyManager.java")
 
