@@ -108,7 +108,8 @@ rstudio_pkgs = c(
     "testthat",
     "devtools",
     "DBI",
-    "RSQLite"
+    "RSQLite",
+    "caTools" # Not listed in Dependency Manager?
   )
 
 
