@@ -247,11 +247,11 @@ to_install_pkgs = pkg_list[!(pkg_list %in% installed.packages()[,"Package"])]
 
 # Install the missing packages
 if(length(to_install_pkgs)) {
-    install.packages(to_install_pkgs)
+    install.packages(to_install_pkgs, quiet = TRUE)
 }
 
 # Check if any updates exist, if so... Install!
-update.packages(ask = FALSE)
+update.packages(ask = FALSE, quiet = TRUE)
 
 #### GitHub-only packages  ----
 
