@@ -52,6 +52,7 @@ options(Ncpus = Ncpus,
 # The list of dependencies can be found here:
 # https://github.com/rstudio/rstudio/blob/master/src/gwt/src/org/rstudio/studio/client/common/dependencies/DependencyManager.java
 rstudio_pkgs = c(
+    "roxygen2",
     "xml2",
     "htmltools",
     "htmlwidgets",
@@ -68,17 +69,21 @@ rstudio_pkgs = c(
     "rstudioapi",
     "yaml",
     "rsconnect",
-    "evaluate",
-    "digest",
-    "highr",
-    "markdown",
-    "stringr",
     "Rcpp",
-    "knitr",
     "base64enc",
-    "rprojroot",
+    "digest",
+    "evaluate",
+    "glue",
+    "highr",
+    "knitr",
+    "magrittr",
+    "markdown",
     "mime",
     "rmarkdown",
+    "rprojroot",
+    "stringr",
+    "tinytex",
+    "xfun",
     "miniUI",
     "xtable",
     "sourcetools",
@@ -104,7 +109,8 @@ rstudio_pkgs = c(
     "devtools",
     "DBI",
     "RSQLite"
-)
+  )
+
 
 #### Class Package Requirements ----
 
