@@ -53,8 +53,6 @@
     ## CBTF Help Messages ----
 
     ## Hard coded help documentation location
-    ## TODO: Update to where docs are on the CBTF website!!
-
     cbtf_help_url = "https://cbtf.engr.illinois.edu/for-students/software-RStudio.html"
 
     ## Open the URL for students to view help documentation
@@ -64,12 +62,10 @@
     }
 
     ## Place the help function into the global environment
-    ## TODO: Enable when documentation is present
     base::assign("help_cbtf", help_cbtf, envir = globalenv())
 
     ## Provide startup messages in red text to indicate the status of
     ## package installation and environment specific documentation
-
     wrap_msg = function(x) {
         message(paste(strwrap(x), collapse = "\n"))
     }

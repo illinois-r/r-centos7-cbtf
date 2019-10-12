@@ -38,7 +38,7 @@ if(Ncpus >= 4) {
 # during package installation/updation and set the default mirror
 # to the Cloud CDN for CRAN: https://cloud.r-project.org
 options(Ncpus = Ncpus,
-        repos = c("CRAN" = "https://cloud.r-project.org"))
+        repos = c('CRAN' = 'https://cloud.r-project.org'))
 
 
 #### RStudio IDE Packages ----
@@ -52,59 +52,66 @@ options(Ncpus = Ncpus,
 # The list of dependencies can be found here:
 # https://github.com/rstudio/rstudio/blob/master/src/gwt/src/org/rstudio/studio/client/common/dependencies/DependencyManager.java
 rstudio_pkgs = c(
-    "xml2",
-    "htmltools",
-    "htmlwidgets",
-    "jsonlite",
-    "r2d3",
-    "R6",
-    "stringi",
-    "httpuv",
-    "crayon",
-    "plumber",
-    "packrat",
-    "RCurl",
-    "openssl",
-    "rstudioapi",
-    "yaml",
-    "rsconnect",
-    "evaluate",
-    "digest",
-    "highr",
-    "markdown",
-    "stringr",
-    "Rcpp",
-    "knitr",
-    "base64enc",
-    "rprojroot",
-    "mime",
-    "rmarkdown",
-    "miniUI",
-    "xtable",
-    "sourcetools",
-    "promises",
-    "rlang",
-    "later",
-    "shiny",
-    "png",
-    "reticulate",
-    "rstan",
-    "readr",
-    "haven",
-    "readxl",
-    "RJDBC",
-    "rJava",
-    "RODBC",
-    "mongolite",
-    "profvis",
-    "keyring",
-    "odbc",
-    "shinytest",
-    "testthat",
-    "devtools",
-    "DBI",
-    "RSQLite"
-)
+    'roxygen2',
+    'xml2',
+    'htmltools',
+    'htmlwidgets',
+    'jsonlite',
+    'r2d3',
+    'R6',
+    'stringi',
+    'httpuv',
+    'crayon',
+    'plumber',
+    'packrat',
+    'RCurl',
+    'openssl',
+    'rstudioapi',
+    'yaml',
+    'rsconnect',
+    'Rcpp',
+    'base64enc',
+    'digest',
+    'evaluate',
+    'glue',
+    'highr',
+    'knitr',
+    'magrittr',
+    'markdown',
+    'mime',
+    'rmarkdown',
+    'rprojroot',
+    'stringr',
+    'tinytex',
+    'xfun',
+    'miniUI',
+    'xtable',
+    'sourcetools',
+    'promises',
+    'rlang',
+    'later',
+    'shiny',
+    'png',
+    'reticulate',
+    'rstan',
+    'readr',
+    'haven',
+    'readxl',
+    'RJDBC',
+    'rJava',
+    'RODBC',
+    'mongolite',
+    'profvis',
+    'keyring',
+    'odbc',
+    'shinytest',
+    'testthat',
+    'devtools',
+    'DBI',
+    'RSQLite',
+    'caTools' # Not listed in Dependency Manager?
+  )
+
 
 #### Class Package Requirements ----
 
@@ -135,96 +142,97 @@ stat385_pkgs =
       'future', 'doParallel',                                   # Parallelization
       'data.table',                                             # Data Manipulation
       'survey', 'fivethirtyeight', 'nycflights13',              # Data packages
-      'babynames', 'neiss', 'ggplot2movies'
+      'babynames', 'neiss', 'ggplot2movies',
+      'socviz'
       )
 
 ### STAT 430 DSPM ----
 
 stat430dspm_pkgs = c(
-    "rmarkdown",
-    "jsonlite",
-    "xml2",
-    "RSQLite",
-    "data.table",
-    "ggplot2",
-    "stringr",
-    "dplyr",
-    "tibble",
-    "tidyr",
-    "rbenchmark",
-    "microbenchmark",
-    "Rcpp",
-    "RcppArmadillo",
-    "latticeExtra",
-    "shiny",
-    "shinydashboard",
-    "flexdashboard",
-    "devtools",
-    "RUnit",
-    "testthat",
-    "covr",
-    "roxygen2",
-    "littler"
+    'rmarkdown',
+    'jsonlite',
+    'xml2',
+    'RSQLite',
+    'data.table',
+    'ggplot2',
+    'stringr',
+    'dplyr',
+    'tibble',
+    'tidyr',
+    'rbenchmark',
+    'microbenchmark',
+    'Rcpp',
+    'RcppArmadillo',
+    'latticeExtra',
+    'shiny',
+    'shinydashboard',
+    'flexdashboard',
+    'devtools',
+    'RUnit',
+    'testthat',
+    'covr',
+    'roxygen2',
+    'littler'
 )
 
 ### STAT 432: Basics of Statistical Learning
 
 stat432_pkgs = c(
-  "caret",
-  "class",
-  "cluster",
-  "dendextend",
-  "dplyr",
-  "e1071",
-  "ellipse",
-  "extraTrees",
-  "factoextra",
-  "FNN",
-  "gam",
-  "gbm",
-  "ggplot2",
-  "ggridges",
-  "ggthemes",
-  "glmnet",
-  "ISLR",
-  "janitor",
-  "kableExtra",
-  "kernlab",
-  "klaR",
-  "knitr",
-  "leaps",
-  "lubridate",
-  "mlbench",
-  "nnet",
-  "plotrix",
-  "pROC",
-  "purrr",
-  "randomForest",
-  "readr",
-  "rmarkdown",
-  "rpart",
-  "rpart.plot",
-  "rsample",
-  "rvest",
-  "sparcl",
-  "tibble",
-  "tidyverse",
-  "tree"
+  'caret',
+  'class',
+  'cluster',
+  'dendextend',
+  'dplyr',
+  'e1071',
+  'ellipse',
+  'extraTrees',
+  'factoextra',
+  'FNN',
+  'gam',
+  'gbm',
+  'ggplot2',
+  'ggridges',
+  'ggthemes',
+  'glmnet',
+  'ISLR',
+  'janitor',
+  'kableExtra',
+  'kernlab',
+  'klaR',
+  'knitr',
+  'leaps',
+  'lubridate',
+  'mlbench',
+  'nnet',
+  'plotrix',
+  'pROC',
+  'purrr',
+  'randomForest',
+  'readr',
+  'rmarkdown',
+  'rpart',
+  'rpart.plot',
+  'rsample',
+  'rvest',
+  'sparcl',
+  'tibble',
+  'tidyverse',
+  'tree'
 )
 
 ### CE 202 ----
 
 ce202_pkgs = c(
-  "tidyverse",
-  "ggplot",
-  "knitr",
-  "rmarkdown",
-  "readxl"
+  'tidyverse',
+  'ggplot',
+  'knitr',
+  'rmarkdown',
+  'readxl'
 )
 
 ### Your class here ----
 
-# deptnamenumber_pkgs = c("", ...)
+# deptnamenumber_pkgs = c('', ...)
 
 ### Combine packages used across classes  ----
 
@@ -243,7 +251,7 @@ pkg_list = Reduce(union,
 #### Install packages from CRAN  ----
 
 # Determine what packages are NOT installed already.
-to_install_pkgs = pkg_list[!(pkg_list %in% installed.packages()[,"Package"])]
+to_install_pkgs = pkg_list[!(pkg_list %in% installed.packages()[,'Package'])]
 
 # Install the missing packages
 if(length(to_install_pkgs)) {
@@ -256,6 +264,5 @@ update.packages(ask = FALSE, quiet = TRUE)
 #### GitHub-only packages  ----
 
 # Install some data packages on GitHub
-devtools::install_github("kjhealy/socviz")
-devtools::install_github("coatless/uiucdata")
-devtools::install_github("coatless/ucidata")
+devtools::install_github('coatless/uiucdata', quiet = TRUE)
+devtools::install_github('coatless/ucidata', quiet = TRUE)
