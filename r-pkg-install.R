@@ -263,5 +263,5 @@ update.packages(ask = FALSE, quiet = TRUE)
 #### GitHub-only packages  ----
 
 # Install some data packages on GitHub
-devtools::install_github("coatless/uiucdata")
-devtools::install_github("coatless/ucidata")
+devtools::install_github("coatless/uiucdata", quiet = TRUE)
+devtools::install_github("coatless/ucidata", quiet = TRUE)
