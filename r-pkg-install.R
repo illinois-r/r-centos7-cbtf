@@ -243,7 +243,7 @@ pkg_list = Reduce(union,
                        stat385_pkgs,
                        stat430dspm_pkgs,
                        stat432_pkgs,
-                       ce202_pkgs
+                       cee202_pkgs
                        #, deptnamenumber_pkgs # Your course here
                        )
                   )
