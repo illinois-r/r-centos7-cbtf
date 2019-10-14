@@ -54,7 +54,9 @@ sudo yum install -y libcurl-devel \
                     openssl-devel \
                     libssh2-devel \
                     libpng-devel  \
-                    libjpeg-turbo-devel
+                    libjpeg-turbo-devel \ 
+                    unixODBC-devel `# required for ODBC` \
+                    libsodium-devel
 
 ############# Install Latest RStudio IDE
 
