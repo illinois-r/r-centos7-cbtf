@@ -136,14 +136,14 @@ stat385_pkgs =
       'zoo', 'xts', 'forecast',                                 # Time Series Analysis
       'maps', 'maptools', 'mapproj',                            # Mapping packages
       'mapdata', 'ggmap', 'leaflet',
-      'leaflet.extra',
+      'leaflet.extras',
       'GGally', 'ggrepel', 'ggraph', 'gganimate',               # Graphing Tools
       'cowplot', 'gridExtra', 'patchwork',
       'tidytext', 'tm',                                         # Text manipulation
       'future', 'doParallel',                                   # Parallelization
       'data.table',                                             # Data Manipulation
       'survey', 'fivethirtyeight', 'nycflights13',              # Data packages
-      'babynames', 'neiss', 'ggplot2movies',
+      'babynames', 'ggplot2movies',
       'socviz'
       )
 
@@ -225,7 +225,7 @@ stat432_pkgs = c(
 
 cee202_pkgs = c(
   'tidyverse',
-  'ggplot',
+  'ggplot2',
   'knitr',
   'rmarkdown',
   'readxl'
@@ -243,7 +243,7 @@ pkg_list = Reduce(union,
                        stat385_pkgs,
                        stat430dspm_pkgs,
                        stat432_pkgs,
-                       ce202_pkgs
+                       cee202_pkgs
                        #, deptnamenumber_pkgs # Your course here
                        )
                   )
@@ -264,6 +264,32 @@ update.packages(ask = FALSE, quiet = TRUE)
 
 #### GitHub-only packages  ----
 
+pkg_gh_repo = c('coatless/uiucdata',
+                'coatless/ucidata',
+                'thomasp85/patchwork',
+                'hadley/neiss'
+                )
+
 # Install some data packages on GitHub
-devtools::install_github('coatless/uiucdata', quiet = TRUE)
-devtools::install_github('coatless/ucidata', quiet = TRUE)
+devtools::install_github(pkg_gh_repo, quiet = TRUE)
+
+
+#### Validate package installation
+
+gh_pkgs = gsub(".*/", "", pkg_gh_repo)
+
+all_pkg_installed = c(to_install_pkgs, gh_pkgs)
+
+any_pkg_missing = !all_pkg_installed %in% installed.packages()[,'Package']
+
+if (any(any_pkg_missing)) {
+
+  message("The following packages did not properly install:\n\n")
+  message(paste("  *", all_pkg_installed[any_pkg_missing], collapse = "\n"), "\n\n")
+  message("Please re-install the packages.\n")
+
+  # Error
+  q(save = "no", status = 1, runLast = FALSE)
+}
+
+cat("Computer successfully received all packages required!\n")
