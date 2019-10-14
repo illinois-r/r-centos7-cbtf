@@ -136,14 +136,14 @@ stat385_pkgs =
       'zoo', 'xts', 'forecast',                                 # Time Series Analysis
       'maps', 'maptools', 'mapproj',                            # Mapping packages
       'mapdata', 'ggmap', 'leaflet',
-      'leaflet.extra',
+      'leaflet.extras',
       'GGally', 'ggrepel', 'ggraph', 'gganimate',               # Graphing Tools
       'cowplot', 'gridExtra', 'patchwork',
       'tidytext', 'tm',                                         # Text manipulation
       'future', 'doParallel',                                   # Parallelization
       'data.table',                                             # Data Manipulation
       'survey', 'fivethirtyeight', 'nycflights13',              # Data packages
-      'babynames', 'neiss', 'ggplot2movies',
+      'babynames', 'ggplot2movies',
       'socviz'
       )
 
@@ -225,7 +225,7 @@ stat432_pkgs = c(
 
 cee202_pkgs = c(
   'tidyverse',
-  'ggplot',
+  'ggplot2',
   'knitr',
   'rmarkdown',
   'readxl'
