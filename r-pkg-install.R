@@ -264,6 +264,11 @@ update.packages(ask = FALSE, quiet = TRUE)
 
 #### GitHub-only packages  ----
 
+pkg_gh_repo = c('coatless/uiucdata',
+                'coatless/ucidata',
+                'thomasp85/patchwork',
+                'hadley/neiss'
+                )
+
 # Install some data packages on GitHub
-devtools::install_github('coatless/uiucdata', quiet = TRUE)
-devtools::install_github('coatless/ucidata', quiet = TRUE)
+devtools::install_github(pkg_gh_repo, quiet = TRUE)
