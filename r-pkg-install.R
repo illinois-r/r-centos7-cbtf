@@ -272,3 +272,24 @@ pkg_gh_repo = c('coatless/uiucdata',
 
 # Install some data packages on GitHub
 devtools::install_github(pkg_gh_repo, quiet = TRUE)
+
+
+#### Validate package installation
+
+gh_pkgs = gsub(".*/", "", pkg_gh_repo)
+
+all_pkg_installed = c(to_install_pkgs, gh_pkgs)
+
+any_pkg_missing = !all_pkg_installed %in% installed.packages()[,'Package']
+
+if (any(any_pkg_missing)) {
+
+  message("The following packages did not properly install:\n\n")
+  message(paste("  *", all_pkg_installed[any_pkg_missing], collapse = "\n"), "\n\n")
+  message("Please re-install the packages.\n")
+
+  # Error
+  q(save = "no", status = 1, runLast = FALSE)
+}
+
+cat("Computer successfully received all packages required!\n")
