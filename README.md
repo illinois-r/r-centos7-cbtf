@@ -47,3 +47,16 @@ chmod +x ~/setup-centos7-r.sh
 ./setup-centos7-r.sh
 ```
 
+### Computer-based Testing Facility (CBTF) Deployment
+
+Within this video, there is a brief walkthrough of opening RStudio and writing in RMarkdown on a computer configured securely in the [Computer-based Testing Facility (CBTF)](https://cbtf.engr.illinois.edu/) at the [University of Illinois at Urbana-Champaign (UIUC)](https://illinois.edu).
+
+[![Sample video showing an earlier rendition of R in a secure environment](https://img.youtube.com/vi/6oaPvo4TIFk/0.jpg)](https://www.youtube.com/watch?v=6oaPvo4TIFk)
+
+**Note:** This video shows a slightly outdated version. 
+
+More details can be found at: 
+
+- [Overriding RStudio's Startup Hook Inside Rprofile](https://thecoatlessprofessor.com/programming/r/overriding-rstudios-startup-hook-inside-rprofile/)
+- [Improving the Secured Computer-based Testing Environment for R on Centos 7 Using Rprofile and Renviron](https://thecoatlessprofessor.com/programming/r/improving-the-secured-computer-based-testing-environment-for-r-on-centos-7-using-rprofile-and-renviron/)
+- [R and RStudio in a Secured Environment on Centos 7](https://thecoatlessprofessor.com/programming/r/r-and-rstudio-in-a-secured-environment-on-centos-7/)
